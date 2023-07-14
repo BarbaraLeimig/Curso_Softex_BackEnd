@@ -1,0 +1,31 @@
+ATIVIDADE: Em uma inscrição, o usuário informou os seguintes dados:
+
+  - Nome: José Almeida da Silva
+  - CPF: 12345678900
+  - RG: 9517530
+  - Altura: 1,78
+  - Endereço: Rua A, 380 – Centro – Recife/PE
+
+No algoritmo, descreva como será:
+  1. A proposta das variáveis;
+  2. Elaborada a declaração das variáveis;
+  3. Utilizado o comando de atribuição.
+
+RESPOSTA: 
+1.	A proposta das variáveis é armazenar dados a serem conhecidos acerca do nome, CPF, RG, altura e endereço, objetivando a criação de um cadastro do usuário que utilize o sistema.
+
+2.	A declaração das variáveis é feita utilizando-se o identificador e o tipo de dado a ser armazenado
+
+  Nome: caractere
+  CPF: caractere
+  RG: dado inteiro
+  Altura: dado real
+  Endereço: caractere
+
+3.	Cada dado será adicionado a uma variável por meio do comando de atribuição “<-”
+
+  Nome <- José Almeida da Silva
+  CPF <- 123.456.789-00
+  RG <- 9517530
+  Altura <- 1,78
+  Endereço <- Rua A, 380 – Centro – Recife/PE
