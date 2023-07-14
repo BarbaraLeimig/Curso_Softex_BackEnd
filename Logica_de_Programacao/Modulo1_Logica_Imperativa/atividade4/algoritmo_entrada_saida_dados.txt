@@ -1,0 +1,63 @@
+ATIVIDADE: Elabore um algoritmo que representa um cadastro. Ele deve ler os seguintes dados fornecidos pelo usuário:
+
+- Nome
+- Endereço
+- Cidade
+- CPF
+- RG
+- Idade
+- Nome do pai
+- Nome da mãe
+- Peso
+- Renda bruta
+
+Apresente as informações solicitadas no final do cadastro.
+
+RESPOSTA: 
+Algoritmo "cadastrousuario"
+
+Var
+   nome, endereco, cidade, nomepai, nomemae, cpf: caractere
+   rg, idade: inteiro
+   peso, rendabruta: real
+
+Inicio
+   escreval ("Digite os dados solicitados a seguir para a realização do seu cadastro.")
+   escreva ("Nome completo: ")
+   leia (nome)
+   escreva ("Endereço: ")
+   leia (endereco)
+   escreva ("Cidade: ")
+   leia (cidade)
+   escreva ("CPF: ")
+   leia (cpf)
+   escreva ("RG: ")
+   leia (rg)
+   escreva ("Idade: ")
+   leia (idade)
+   escreva ("Nome do pai: ")
+   leia (nomepai)
+   escreva ("Nome da mãe: ")
+   leia (nomemae)
+   escreva ("Peso: ")
+   leia (peso)
+   escreva ("Renda bruta: ")
+   leia (rendabruta)
+   escreval ()
+
+   // apresentação dos dados cadastrados pelo usuário
+
+   escreval ("Agora confira se as informações fornecidas estão corretas.")
+   escreval ()
+   escreval ("Nome completo: ")
+   escreval ("Endereço: ", endereco)
+   escreval ("Cidade: ", cidade)
+   escreval ("CPF: ", cpf)
+   escreval ("RG: ", rg)
+   escreval ("Idade: ", idade)
+   escreval ("Nome do pai: ", nomepai)
+   escreval ("Nome da mãe: ", nomemae)
+   escreval ("Peso: ", peso)
+   escreval ("Renda bruta: ", rendabruta)
+
+Fimalgoritmo
