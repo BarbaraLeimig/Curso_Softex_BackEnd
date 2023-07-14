@@ -15,3 +15,4 @@ Então, o transporte escolhido foi a bicicleta.
 
 Para chegar ao resultado de cada uma das opções, use o modelo em anexo.
 
+<img src="unnamed.png">
