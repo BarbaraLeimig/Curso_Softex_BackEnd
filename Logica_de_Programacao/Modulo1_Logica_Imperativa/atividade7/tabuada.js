@@ -1,3 +1,4 @@
+// npm install readline-sync (comando para instalação da biblioteca)
 // Importa a biblioteca readline-sync para poder interagir com o usuário no console
 const readline = require('readline-sync');
 
