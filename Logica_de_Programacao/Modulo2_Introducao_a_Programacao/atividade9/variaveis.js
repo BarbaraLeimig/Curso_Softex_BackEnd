@@ -3,7 +3,7 @@ let idade = 28;
 let altura = 1.65;
 let maior_de_idade = true;
 
-console.log(nome);
-console.log(idade);
-console.log(altura);
-console.log(maior_de_idade);
+console.log("Nome: ", nome);
+console.log("Idade: ", idade);
+console.log("Altura: ", altura);
+console.log("É maior de idade? ", maior_de_idade);
