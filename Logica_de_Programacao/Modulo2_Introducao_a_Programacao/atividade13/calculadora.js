@@ -61,5 +61,5 @@ function calculator() {
     }
 }
 
-// Chamando a função da calculadora no escopo global
+// Chamar a função da calculadora no escopo global
 calculator();
