@@ -25,9 +25,7 @@ function operations(n1, n2, operator) {
 // Função para solicitar dados
 function calculator() {
 
-    let newOperation = true;
-
-    while (newOperation) {
+    while (true) {
 
         console.log("\n******************** CALCULADORA ********************");
 
