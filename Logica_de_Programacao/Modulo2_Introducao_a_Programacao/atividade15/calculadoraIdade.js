@@ -17,7 +17,7 @@ function data() {
         try {
             // Solicita o nome completo e ano de nascimento ao usuário usando o readline-sync
             nomeCompleto = readline.question("Digite seu nome completo: ");
-            anoNascimento = readline.questionInt("Digite o ano em que voce nasceu (valido entre 1922 e 2021: ");
+            anoNascimento = readline.questionInt("Digite o ano em que voce nasceu (valido entre 1922 e 2021): ");
 
             // Verifica se o que foi digitado é um número inteiro e se está dentro do intervalo válido
             if (!Number.isInteger(anoNascimento) || anoNascimento < 1922 || anoNascimento > 2021) {
