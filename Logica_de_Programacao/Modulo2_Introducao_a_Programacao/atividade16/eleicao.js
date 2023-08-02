@@ -1,87 +1,102 @@
-// Importa a biblioteca redline-sync
+// Importar biblioteca readline-sync
 const readline = require('readline-sync');
+//import { questionInt, question } from 'readline-sync'; Ex: let variavel = questionInt("Digite o numero");
+
+// Variáveis que armazenam o número de votos dos candidatos
+let x = 0, y = 0, z = 0, branco = 0, nulo = 0;
 
 // Cria o objeto Candidatos
 const Candidatos = {
-    CANDIDATO_X: "candidato_x",
-    CANDIDATO_Y: "candidato_y",
-    CANDIDATO_Z: "candidato_z",
-    BRANCO: "branco",
+    candidato_X: 889,
+    candidato_Y: 847,
+    candidato_Z: 515,
+    branco: 0,
 };
 
-// Cria o objeto votos, que está relacionado ao objeto Candidato
-const votos = {
-    [Candidatos.CANDIDATO_X]: 0,
-    [Candidatos.CANDIDATO_Y]: 0,
-    [Candidatos.CANDIDATO_Z]: 0,
-    [Candidatos.BRANCO]: 0,
-};
+// Função que exibe o menu da Eleição
+function menu() {
+    console.log(`========== ELEICAO ==========
+    Candidato X = ${Candidatos.candidato_X}
+    Candidato Y = ${Candidatos.candidato_Y}
+    Candidato Z = ${Candidatos.candidato_Z}
+    Voto em branco = ${Candidatos.branco}
+                `);
+}
 
-// Função para obter votos
-function obterVoto() {
-    while (true) {
-        console.log(`========== ELEIÇÕES ==========
-889 - ${Candidatos.CANDIDATO_X}
-847 - ${Candidatos.CANDIDATO_Y}
-515 - ${Candidatos.CANDIDATO_Z}
-0 - ${Candidatos.BRANCO}      
-`);
+// Função que obtem o voto do usuário
+function votacao() {
+    menu();
+    let voto = readline.questionInt("\nDigite o numero do seu candidato: ");
 
-        let voto;
-        try {
-            voto = readline.questionInt("Digite a opcao correspondente ao seu candidato: ");
-        } catch (error) {
-            console.error("Erro: não é permitido digitar elemento textual. Digite novamente o valor numérico da opcao de voto");
-            continue;
-        }
-
+    if (isNaN(voto)) {
+        console.error("Nao é permitido texto! Digite um valor numérico.");
+    } else {
         switch (voto) {
-            case 889:
-                votos[Candidatos.CANDIDATO_X]++;
+            case Candidatos.candidato_X:
+                x++;
                 break;
-            case 847:
-                votos[Candidatos.CANDIDATO_Y]++;
+            case Candidatos.candidato_Y:
+                y++;
                 break;
-            case 515:
-                votos[Candidatos.CANDIDATO_Z]++;
+            case Candidatos.candidato_Z:
+                z++;
                 break;
-            case 0:
-                votos[Candidatos.BRANCO]++;
+            case Candidatos.branco:
+                branco++;
                 break;
             default:
-                console.log("Voto anulado! Será computado como voto em branco");
-                votos[Candidatos.BRANCO]++;
+                console.log("\nOpção inválida! Seu voto será contabilizado como nulo");
+                nulo++;
                 break;
         }
-
-        // Condição para confirmar o voto do eleitor
-        const confirmacao = readline.question("\nVoce confirma o seu voto? (Digite 's' para sim ou qualquer outra coisa para nao) ");
-        if (confirmacao.toLowerCase() !== "s") {
-            console.log("\nVoto cancelado.");
-        }
-
-        const resposta = readline.question("\nDeseja continuar a votacao? (Digite 's' para sim ou qualquer outra coisa para nao) ");
-        if (resposta.toLowerCase() !== "s") {
-            break;
-        }
     }
-
-    finalizarVotacao();
-
 }
 
-// Função para finalizar a votação 
-function finalizarVotacao() {
-    console.log("\nVotacao encerrada!");
-    console.log("Resultado da votacao:");
-    for (const candidato in votos) {
-        console.log(`${candidato}: ${votos[candidato]} votos`);
-    }
+// Função que avalia se há vencedor e retorna quem é o candidato vencedor da eleição
+function vencedor() {
+    // Math.max é uma função que retorna o maior valor entre dois ou mais números
+    const maxVotos = Math.max(x, y, z, branco + nulo);
 
-    const totalBrancosNulos = votos[Candidatos.BRANCO];
-    console.log(`Total de votos brancos e nulos: ${totalBrancosNulos}`);
+    if (maxVotos === x && maxVotos > y && maxVotos > z && maxVotos > branco + nulo) {
+        return `\nRESULTADO: O VENCEDOR É O Candidato X COM ${maxVotos} VOTOS!`;
+    } else if (maxVotos === y && maxVotos > x && maxVotos > z && maxVotos > branco + nulo) {
+        return `\nRESULTADO: O VENCEDOR É O Candidato Y COM ${maxVotos} VOTOS!`;
+    } else if (maxVotos === z && maxVotos > x && maxVotos > y && maxVotos > branco + nulo) {
+        return `\nRESULTADO: O VENCEDOR É O Candidato Z COM ${maxVotos} VOTOS!`;
+    } else if (maxVotos === branco + nulo && maxVotos > x && maxVotos > y && maxVotos > z) {
+        return `\nRESULTADO: NAO HOUVE VENCEDOR`;
+    } else {
+        return `\nRESULTADO: HOUVE EMPATE! Os vencedores têm ${maxVotos} votos cada.`;
+    }
 }
 
 
-// Chama a função obterVoto e inicia a votação
-obterVoto();
+// Função principal que inicia a eleição e exibe seu resultado final
+function Eleicao() {
+    while (true) {
+        votacao();
+        let confirmarVoto = readline.question("\nVoce confirma o seu voto? (Digite 's' para sim ou qualquer outra coisa para nao) ");
+        if (confirmarVoto.toLowerCase() == "s") {
+
+            while (true) {
+                let parar = readline.question("\nEncerrar a votacao? (Digite 's' para sim ou qualquer outra coisa para nao) ");
+                if (parar.toLowerCase() === "s") {
+                    console.log(`\n
+========== APURACAO DOS VOTOS ==========
+Candidato X = ${x} 
+Candidato Y = ${y}
+Candidato Z = ${z}
+Votos brancos e nulos = ${branco + nulo}
+`);
+                    return console.log(vencedor());
+                }
+                break;
+            }
+        } else {
+            console.log("\nVOTO CANCELADO! Por favor, vote novamente.\n");
+        }
+    }
+}
+
+// Chama a função principal
+Eleicao();
