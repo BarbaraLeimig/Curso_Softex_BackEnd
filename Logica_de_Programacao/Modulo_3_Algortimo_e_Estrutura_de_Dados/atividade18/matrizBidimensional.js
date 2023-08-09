@@ -1,9 +1,9 @@
 // Cria uma matriz bidimensional com informações sobre animais
 const animais = [
     ["Leão", "Felino", 10],
-    ["Gato", "Mamífero", 10],
+    ["Gato", "Felino", 10],
     ["Tigre", "Felino", 8],
-    ["Girafa", 'Mamífero', 15],
+    ["Falcão", "Ave", 15],
     ["Águia", "Ave", 5]
 ];
 
