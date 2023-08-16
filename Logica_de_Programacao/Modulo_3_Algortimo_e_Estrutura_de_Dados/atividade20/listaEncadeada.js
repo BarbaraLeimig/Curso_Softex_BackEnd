@@ -1,55 +1,60 @@
+// Criando a classe Pessoa, que é referente a um nó
 class Pessoa {
     constructor(nome, idade, filho = null) {
         this.nome = nome;
         this.idade = idade;
         this.filho = filho;
-        this.proximo = null; // Ponteiro para o próximo nó
+        this.proximo = null;
     }
 }
 
-class ListaEncadeada {
+// Criando a classe Lista Encadeada
+class listaEncadeada {
     constructor() {
         this.head = null; // O início da lista é nulo, indicando uma lista vazia
     }
 
+    // Criando o método para adicionar pessoas na lista
     adicionarPessoa(nome, idade, filho = null) {
         const novaPessoa = new Pessoa(nome, idade, filho);
 
+        // Se a lista estiver vazia, o novo elemento se torna o início da lista
         if (this.head === null) {
-            // Se a lista estiver vazia, o novo elemento se torna o início da lista
             this.head = novaPessoa;
         } else {
-            let atual = this.head;
-            while (atual.proximo !== null) {
-                atual = atual.proximo;
+            let pessoaAtual = this.head;
+            while (pessoaAtual.proximo !== null) {
+                pessoaAtual = pessoaAtual.proximo;
             }
+
             // Encontra o último elemento da lista e conecta o novo elemento a ele
-            atual.proximo = novaPessoa;
+            pessoaAtual.proximo = novaPessoa;
         }
     }
 
+    // Criando o método para exibir as informações da lista encadeada
     exibirPessoas() {
-        let atual = this.head;
-        while (atual !== null) {
-            console.log(`Nome: ${atual.nome}, Idade: ${atual.idade}`);
-            if (atual.filho !== null) {
-                console.log(`  Filho: ${atual.filho.nome}`);
+        let pessoaAtual = this.head;
+        while (pessoaAtual !== null) {
+            console.log(`Nome: ${pessoaAtual.nome}, Idade: ${pessoaAtual.idade}`);
+            if (pessoaAtual.filho !== null) {
+                console.log(`Filho: ${pessoaAtual.filho.nome}`);
             }
-            atual = atual.proximo; // Avança para o próximo nó
+            pessoaAtual = pessoaAtual.proximo; // Avança para o próximo nó
         }
     }
 }
 
-// Criar a lista encadeada e adicionar pessoas
-const lista = new ListaEncadeada();
+// Criando a lista encadeada e adicionando pessoas
+const lista = new listaEncadeada();
 lista.adicionarPessoa("Alice", 30);
 lista.adicionarPessoa("Bob", 25);
 lista.adicionarPessoa("Carol", 40);
 
-// Conectar filho à pessoa
+// Conectando filho à pessoa
 const alice = lista.head;
-const filhoDeAlice = new Pessoa("David", 5);
+const filhoDeAlice = new Pessoa("David");
 alice.filho = filhoDeAlice;
 
-// Exibir informações de todas as pessoas na lista
+// Exibidindo as informações de todas as pessoas da lista
 lista.exibirPessoas();
