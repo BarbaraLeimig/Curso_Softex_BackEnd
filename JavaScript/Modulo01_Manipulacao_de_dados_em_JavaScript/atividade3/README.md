@@ -1,0 +1,2 @@
+A atividade que faremos é a da "calculadora de média". Para isso, você deve criar um programa JavScript que calcule a média de três notas inseridas pelo usuário e exiba o resultado no console.
+Primeiro, solicite ao usuário que insira três notas (entre 0 e 10). Elas devem ser armazenadas em variáveis adequadas, por exemplo, nota1, nota2 nota3, com o tipo de dado Number. Depois, some-as e divida por 3. O resultado deste cálculo será o valor da média, que deve ser armazenado em uma variável chamada media. Por fim, exiba o valor no console usando a função console.log().
