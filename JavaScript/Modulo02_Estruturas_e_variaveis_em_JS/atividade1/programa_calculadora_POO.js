@@ -38,14 +38,14 @@ class Calculadora {
       case 4:
         if (this.n2 !== 0) {
           this.resultado = this.n1 / this.n2;
-          this.resto = this.n1 % this.n2; // Calcula o resto da divisão
+          this.resto = this.n1 % this.n2; 
         } else {
           console.log("Erro: Divisão por zero.");
         }
         break;
       case 5:
         console.log("Encerrando o programa.");
-        return false; // Sair do loop
+        return false; 
       default:
         console.log("Operação inválida.");
     }
